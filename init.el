@@ -20,5 +20,8 @@
 ;; Save changes made through the customize interface in their own file
 (setq custom-file (expand-file-name "custom.el" root-dir))
 
+;; Measure startup time
+(require 'init-benchmarking)
+
 (provide 'init)
 ;;; init.el ends here

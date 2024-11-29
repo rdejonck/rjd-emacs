@@ -1,6 +1,6 @@
 # Init file TODO
 
-[ ] Startup: startup time performance
+[x] Startup: startup time performance
 [x] Startup: lisp, Custom directories
 [ ] Startup: Menubar / Splash screen / startup time
 [ ] Startup: backup files - save and history
