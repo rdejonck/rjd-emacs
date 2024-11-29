@@ -2,7 +2,7 @@
 
 [x] Startup: startup time performance
 [x] Startup: lisp, Custom directories
-[ ] Startup: Menubar / Splash screen / startup time
+[x] Startup: Toolbar / Splash screen / startup time
 [ ] Startup: backup files - save and history
 [ ] Startup: Save place
 [ ] Modus Theme

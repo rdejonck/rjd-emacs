@@ -22,6 +22,7 @@
 
 ;; Measure startup time
 (require 'init-benchmarking)
+(require 'init-startup)
 
 (provide 'init)
 ;;; init.el ends here
