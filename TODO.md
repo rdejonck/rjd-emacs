@@ -6,7 +6,7 @@
 [x] Startup: backup files and autosave files
 [x] Startup: Save place and file history
 [x] Modus Theme (built-in)
-[ ] Truncate long lines / visual line mode
+[x] Truncate long lines / visual line mode
 [ ] Column indicators at 73, 80, 100 characters
 [ ] Project management
 [ ] magit

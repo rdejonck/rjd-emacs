@@ -12,13 +12,13 @@
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs t
       ;; modus-themes-mixed-fonts nil
-      ;; modus-themes-subtle-line-numbers nil
+      modus-themes-subtle-line-numbers t
       modus-themes-intense-mouseovers t
       ;; modus-themes-deuteranopia t
       modus-themes-tabs-accented t
       ;; modus-themes-variable-pitch-ui nil
       ;; modus-themes-inhibit-reload t ; only applies to 'customize-set-variable' and related
-      modus-themes-fringes 'intense ; {nil, 'subtle, 'intense}
+      modus-themes-fringes 'subtle ; {nil, 'subtle, 'intense}
 
       ;; Options for `modus-themes-lang-checkers' are either nil (the
       ;; default), or a list of properties that may include any of those
@@ -49,7 +49,7 @@
       ;; Options for `modus-themes-hl-line' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
       ;; `accented', `underline', `intense'
-      ;; modus-themes-hl-line '(underline accented)
+      modus-themes-hl-line '(accented intense)
 
       ;; Options for `modus-themes-paren-match' are either nil (the
       ;; default), or a list of properties that may include any of those
