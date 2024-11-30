@@ -26,10 +26,24 @@
       ;; Consolidate auto-save files into saves-dir
       auto-save-file-name-transforms
       `((".*" ,(file-name-as-directory saves-dir) t)))
-      
-
 ;; Delete auto-save files when killing the buffer
 (setf kill-buffer-delete-auto-save-files t)
+
+
+;; Recent Files List
+(setq recentf-save-file (expand-file-name "recentf" saves-dir)
+;;      recentf-auto-cleanup 'never ; Uncomment if this causes some unknown issues
+      recentf-max-saved-items 500
+      recentf-max-menu-items 25)
+(recentf-mode t)
+
+;; Save the minibuffer history between sessions
+(setq savehist-file (expand-file-name "savehist" saves-dir))
+(savehist-mode t)
+
+;; Remember your location in a file when saving files
+(setq save-place-file (expand-file-name "saveplace" saves-dir))
+(save-place-mode t)
 
 (provide 'init-savefiles)
 ;;; init-savefiles.el ends here

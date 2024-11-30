@@ -4,7 +4,10 @@
 [x] Startup: lisp, Custom directories
 [x] Startup: Toolbar / Splash screen / startup time
 [x] Startup: backup files and autosave files
-[ ] Startup: Save place and file history
+[x] Startup: Save place and file history
 [ ] Modus Theme
 [ ] Truncate long lines / visual line mode
 [ ] Column indicators at 73, 80, 100 characters
+[ ] Project management
+[ ] magit
+[ ] Integrate recent files with completion mode

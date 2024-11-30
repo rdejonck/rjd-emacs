@@ -26,5 +26,7 @@
 (require 'init-startup)
 (require 'init-savefiles)
 
+(require 'init-keybindings)
+
 (provide 'init)
 ;;; init.el ends here
