@@ -1,10 +1,10 @@
-;;; init.el --- Emacs configuration
+    ;;; init.el --- Emacs configuration
 
 ;;; Commentary:
 ;; Building a configuration from the ground up with the intent of
 ;; understanding all the things in it.
 
-;;; Licence:
+;;; License:
 
 ;;; Code:
 
@@ -13,6 +13,7 @@
   "The root of the Emacs configuration directory tree.")
 (defvar lisp-dir (expand-file-name "lisp" root-dir)
   "Directory for custom Lisp that defines the configuration.")
+;;(setq saves-dir (expand-file-name "saves" user-emacs-directory))
 
 ;; load additional lisp files from the lisp-dir directory
 (add-to-list 'load-path lisp-dir)
@@ -23,6 +24,7 @@
 ;; Measure startup time
 (require 'init-benchmarking)
 (require 'init-startup)
+(require 'init-savefiles)
 
 (provide 'init)
 ;;; init.el ends here
