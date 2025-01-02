@@ -7,9 +7,13 @@
 [x] Startup: Save place and file history
 [x] Modus Theme (built-in)
 [x] Truncate long lines / visual line mode
-[ ] Column indicators at 73, 80, 100 characters
+[x] Column indicators at 80 characters
 [ ] Project management
 [ ] magit
 [ ] package management
 [ ] Integrate recent files with completion mode
 [ ] ef-themes, modus-themes from package (with built-in theme failsafe)
+[ ] Column indicators at 72 and 100 characters
+[ ] language servers (eglot)
+[ ] Tree-sitter grammars
+[ ] Completion

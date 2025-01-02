@@ -10,13 +10,10 @@
 (set-fringe-mode 10)                ; Add space around the fringes
 (global-hl-line-mode t)             ; Higlight the current line
 
-;; Display line numbers in most modes
-;; Modes without line numbers are explicitly listed by exception
-(global-display-line-numbers-mode t)
-(dolist (mode '(term-mode-hook
-		shell-mode-hook
-		eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+;; Display line numbers in text and prog modes
+(dolist (mode '(prog-mode-hook
+		text-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode t))))
 
 ;; Truncate long lines in programming modes
 (defun prog-mode-fill-setup ()
@@ -31,6 +28,24 @@
   (setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
   (turn-on-visual-line-mode))
 (add-hook 'text-mode-hook 'text-mode-fill-setup)
+
+;; Display guides at 72, 80, and 100 characters
+(global-display-fill-column-indicator-mode t)
+(setq-default indicate-buffer-boundaries 'left)
+
+(defvar parameters
+  '(window-parameters . ((no-other-window . t)
+                         (no-delete-other-windows . t))))
+
+(defun dired-default-directory-on-left ()
+  "Display `default-directory' in side window on left, hiding details."
+  (interactive)
+  (let ((buffer (dired-noselect default-directory)))
+    (with-current-buffer buffer (dired-hide-details-mode t))
+    (display-buffer-in-side-window
+     buffer `((side . left) (slot . 0)
+              (window-width . fit-window-to-buffer)
+              (preserve-size . (t . nil)) ,parameters))))
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
