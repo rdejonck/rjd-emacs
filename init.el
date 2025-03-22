@@ -27,6 +27,7 @@
 (require 'init-savefiles)
 (require 'init-theme)
 (require 'init-ui)
+(require 'init-project)
 
 (require 'init-keybindings)
 
