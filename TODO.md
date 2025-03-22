@@ -8,12 +8,12 @@
 [x] Modus Theme (built-in)
 [x] Truncate long lines / visual line mode
 [x] Column indicators at 80 characters
+[ ] package management
 [ ] Project management
 [ ] magit
-[ ] package management
+[ ] Completion
 [ ] Integrate recent files with completion mode
 [ ] ef-themes, modus-themes from package (with built-in theme failsafe)
 [ ] Column indicators at 72 and 100 characters
 [ ] language servers (eglot)
 [ ] Tree-sitter grammars
-[ ] Completion
