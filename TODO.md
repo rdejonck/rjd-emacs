@@ -8,7 +8,7 @@
 [x] Modus Theme (built-in)
 [x] Truncate long lines / visual line mode
 [x] Column indicators at 80 characters
-[ ] package management
+[x] package management
 [ ] Project management
 [ ] magit
 [ ] Completion

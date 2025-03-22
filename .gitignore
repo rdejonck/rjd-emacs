@@ -1,3 +1,5 @@
 saves/
 auto-save-list/
 eln-cache/
+elpa/
+elpa-*.*/
