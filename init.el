@@ -25,7 +25,9 @@
 (require 'init-benchmarking)
 (require 'init-startup)
 (require 'init-savefiles)
+
 (require 'init-packages)
+(require 'init-vc)
 
 (require 'init-theme)
 (require 'init-ui)

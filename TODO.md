@@ -9,8 +9,8 @@
 [x] Truncate long lines / visual line mode
 [x] Column indicators at 80 characters
 [x] package management
-[ ] Project management
 [ ] magit
+[ ] Project management
 [ ] Completion
 [ ] Integrate recent files with completion mode
 [ ] ef-themes, modus-themes from package (with built-in theme failsafe)

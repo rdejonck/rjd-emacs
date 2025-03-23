@@ -12,6 +12,7 @@
 
 (defvar my-packages
   '(
+    magit
     )
   "A list of packages to ensure are installed at launch.")
 
