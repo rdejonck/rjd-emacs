@@ -12,6 +12,7 @@
 
 (defvar my-packages
   '(
+    diff-hl
     magit
     )
   "A list of packages to ensure are installed at launch.")
