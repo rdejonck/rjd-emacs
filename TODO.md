@@ -9,7 +9,7 @@
 [x] Truncate long lines / visual line mode
 [x] Column indicators at 80 characters
 [x] package management
-[ ] magit
+[x] magit
 [ ] Project management
 [ ] Completion
 [ ] Integrate recent files with completion mode
