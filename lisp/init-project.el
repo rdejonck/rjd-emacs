@@ -13,7 +13,8 @@
 (setq treemacs-tag-follow-mode t
       treemacs-width 35
       treemacs-text-scale nil
-      treemacs-tag-follow-cleanup nil)
+      treemacs-tag-follow-cleanup nil
+      treemacs-set-scopt-type 'Tabs)
 
 (with-eval-after-load 'treemacs
   (treemacs-filewatch-mode t)

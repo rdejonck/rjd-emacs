@@ -66,6 +66,7 @@ newer.
 * clang
 * libgccjit0
 * libgccjit-14-dev
+* texinfo
 
     $ sudo apt install make gcc libgccjit0 libgccjit-14-dev autotools-dev 
 

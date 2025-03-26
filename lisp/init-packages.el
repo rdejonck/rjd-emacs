@@ -17,6 +17,7 @@
     treemacs
     treemacs-magit          ; Ensure after treemacs and magit
     treemacs-icons-dired
+    treemacs-tab-bar
     )
   "A list of packages to ensure are installed at launch.")
 
