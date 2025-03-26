@@ -11,12 +11,12 @@
 
 ;; Treemacs buffer
 (setq treemacs-tag-follow-mode t
+      treemacs-filewatch-mode t
       treemacs-width 35
       treemacs-text-scale nil
       treemacs-tag-follow-cleanup nil)
 
 (with-eval-after-load 'treemacs
-  (treemacs-filewatch-mode t)
   (treemacs-fringe-indicator-mode 'always)
   (when treemacs-python-executable (treemacs-git-commit-diff-mode t))
   (pcase (cons (not (null (executable-find "git")))
