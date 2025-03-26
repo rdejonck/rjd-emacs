@@ -14,6 +14,9 @@
   '(
     diff-hl
     magit
+    treemacs
+    treemacs-magit
+    treemacs-icons-dired
     )
   "A list of packages to ensure are installed at launch.")
 

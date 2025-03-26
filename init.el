@@ -27,6 +27,8 @@
 (require 'init-savefiles)
 
 (require 'init-packages)
+(require 'init-window_mgmt)
+(require 'init-project)
 (require 'init-vc)
 
 (require 'init-theme)
