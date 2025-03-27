@@ -40,7 +40,7 @@
 ;; Tab-bar options
 ;;     Only display tabs if there are more than one tabs to display
 ;;     Change format of displayed tab-bar information to use tab groups
-(setq tab-bar-show 1
+(setq tab-bar-show t
       tab-bar-format '(tab-bar-format-tabs-groups
                        tab-bar-separator
                        tab-bar-format-add-tab))
