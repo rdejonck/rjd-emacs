@@ -1,8 +1,24 @@
 ;;; init-window_mgmt.el --- Define frame & window size, pos, & functions
 
 ;;; Commentary:
-;; Set the default frame size
-
+;; Set the default frame size and window layout
+;;
+;; Put each project into its own tab.
+;; Use a window layout that approximates:
+;;     ___________________________________________________________
+;;    |     |                            |                        |
+;;    |  *  |                            | *Help*/*Info*/         |
+;;    |  t  |                            | *Apropos*              |
+;;    |  r  |                            |                        |
+;;    |  e  |     Main Window            |                        |
+;;    |  e  |                            |                        |
+;;    |  m  |                            |                        |
+;;    |  a  |                            |                        |
+;;    |  c  |____________________________|________________________|
+;;    |  s  |                                                     |
+;;    |  *  | *shells*                                            |
+;;    |_____|_____________________________________________________|
+;;
 ;;; License:
 
 ;;; Code:
@@ -15,82 +31,69 @@
   (add-to-list 'default-frame-alist
                (cons 'width (+ (frame-width) additional-width))))
 
-;; Max number of side windows - left, top, right, bottom
-(setq window-sides-slots '(1 0 1 1))
+;; Side window options
+;;     Make left/right side windows occupy the frame's full height
+;;     Max number of side windows - left, top, right, bottom
+(setq window-sides-vertical t           ; full height left/right side windows
+      window-sides-slots '(1 0 2 1))    ; left, top, right, bottom
 
+;; Tab-bar options
+;;     Only display tabs if there are more than one tabs to display
+;;     Change format of displayed tab-bar information to use tab groups
+(setq tab-bar-show 1
+      tab-bar-format '(tab-bar-format-tabs-groups
+                       tab-bar-separator
+                       tab-bar-format-add-tab))
+(tab-bar-mode)
 
-;; Consolidate Help/Info/Apropos into at most two windows to the right.
-;; One caveat, use a second window if opening from a Help/Info/Apropos window
-;; to make looking at an index or contents easy in side-by-side windows
-(add-to-list 'display-buffer-alist
-             `(,(rx (| "*Help*" "*info*" "*Apropos*"))
-               (display-buffer-reuse-mode-window
-                display-buffer-in-direction)
-               (direction . right)
-               (mode . (help-mode Info-mode apropos-mode))
-               (inhibit-same-window . t)))
-               
-;; (add-to-list 'display-buffer-alist
-;;              `(,(rx (| "*compilation*" "*grep*"))
-;;                display-buffer-in-side-window
-;;                (side . right)
-;;                (slot . 0)
-;;                (window-parameters . ((no-delete-other-windows . t)))
-;;                (window-width . 80)))
-
-;; (setq tab-bar-format '(tab-bar-format-history
-;;                        tab-bar-format-tabs-groups
-;;                        tab-bar-separator
-;;                        tab-bar-format-add-tab))
 
 ;; Project Tabs
-;; From Mikey Peterson's Mastering Emacs Website
+;; With inspiration from Mikey Peterson's Mastering Emacs Website
 ;;     https://www.masteringemacs.org/article/demystifying-emacs-window-manager
 (defun mp-buffer-has-project-p (buffer action)
   (with-current-buffer buffer (project-current nil)))
 
+(setq rjd-project-type-shorthands '((Git . "Git")))
+(defun rjd-project-type (project)
+  (alist-get (car project) rjd-project-type-shorthands "Unk"))
+
 (defun rjd-unique-project-name (buffer alist)
-  (when-let ((project (project-current nil)))
-    (project-root (project))))
-;;  (project-root (project-current nil)))
+  (with-current-buffer buffer
+    (let ((project (project-current)))
+      (if project
+          (concat (rjd-project-type (cdr project)) " " (project-root project))
+        "Misc"))))
 
-(add-to-list 'display-buffer-alist
-             '(mp-buffer-has-project-p
-               (display-buffer-in-tab
-                display-buffer-reuse-window)
-               (tab-name . rjd-unique-project-name)))
+(setq fit-window-to-buffer-horizontally t)
+(setq window-resize-pixelwise t)
+(setq display-buffer-alist
+      `(
+        ;; Consolidate Help/Info/Apropos into at most two windows to the right.
+	;; One caveat, use a second window if opening from a Help/Info/Apropos
+        ;; window to make looking at an index or contents easy in side-by-side
+        ;; windows
+	(,(rx (| "*Help*" "*info*" "*Apropos*"))
+	 (display-buffer-reuse-mode-window
+          display-buffer-in-direction)
+	 (direction . right)
+	 (mode . (help-mode Info-mode apropos-mode))
+	 (inhibit-same-window . t))
 
-;; (defun mp-tab-group-name (buffer alist)
-;;   (with-current-buffer buffer
-;; ;;    (concat "🗃 " (or (cdr (project-current nil)) "🛡 Ungrouped"))))
-;;     (concat "(P) " (or (project-root (project-current nil)) "(U) Ungrouped"))))
+        ;; Put shells in a bottom "side" window
+        ("^\\*\\(.*-\\)?e?shell\\*$"
+         display-buffer-in-side-window
+         (side . bottom)
+         (slot . 0)
+         (window-parameters . ((no-other-window . t)
+                               (no-delete-other-windows . t))))
 
-;; (defun mp-tab-tab-name (buffer alist)
-;;   (with-current-buffer buffer
-;;     (buffer-name)))
-
-;; (add-to-list 'display-buffer-alist
-;;              '(mp-buffer-has-project-p
-;;                (display-buffer-in-tab display-buffer-reuse-window)
-;; 	       (tab-name . mp-tab-tab-name)
-;; 	       (tab-group . mp-tab-group-name)
-;; 	       ))
-
-;; ;; (defun tab-bar-tabs-set (tabs &optional frame)
-;; ;;   "Set a list of TABS on the FRAME."
-;; ;;   (set-frame-parameter frame 'tabs (seq-sort-by (lambda (el)
-;; ;;                                                   (alist-get 'group el nil))
-;; ;;                                                 #'string-lessp
-;; ;;                                                 tabs)))
-;; ;; (defun mp-reload-tab-bars (&optional dummy)
-;; ;;   "Reload the tab bars... because they're buggy."
-;; ;;   (interactive)
-;; ;;   (tab-bar-tabs-set (frame-parameter nil 'tabs)))
-
-;; ;; (add-hook 'kill-buffer-hook #'mp-reload-tab-bars)
-;; ;; (add-hook 'window-selection-change-functions #'mp-reload-tab-bars)
-
-(tab-bar-mode)
+        ;; Group projects and give each its own tab
+        (mp-buffer-has-project-p
+         (display-buffer-in-tab
+          display-buffer-reuse-window)
+         (tab-name . rjd-unique-project-name)
+         (tab-group . "Projects:"))
+        ))
 
 (provide 'init-window_mgmt)
 ;;; init-window_mgmt.el ends here
