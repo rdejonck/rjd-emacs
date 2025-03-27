@@ -74,8 +74,9 @@
         ;; windows
 	(,(rx (| "*Help*" "*info*" "*Apropos*"))
 	 (display-buffer-reuse-mode-window
-          display-buffer-in-direction)
-	 (direction . right)
+          display-buffer-in-side-window)
+         (side . right)
+         (window-width . 0.33)
 	 (mode . (help-mode Info-mode apropos-mode))
 	 (inhibit-same-window . t))
 
