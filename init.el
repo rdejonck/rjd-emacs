@@ -34,6 +34,7 @@
 (require 'init-theme)
 (require 'init-ui)
 
+(require 'init-completion)
 (require 'init-keybindings)
 
 (provide 'init)

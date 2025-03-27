@@ -16,8 +16,25 @@
     magit
     treemacs
     treemacs-magit          ; Ensure after treemacs and magit
-    treemacs-icons-dired
     treemacs-tab-bar
+    
+    vertico
+    marginalia
+    orderless
+    embark
+    consult
+    embark-consult
+    corfu
+    cape
+
+    ;; Do M-x and run `nerd-icons-install-fonts' to install font files.
+    ;; They get installed to ~/.local/fonts/NFM.ttf. Remember to copy them
+    ;; when creating an archive of these init files
+    nerd-icons
+    nerd-icons-completion
+    nerd-icons-corfu
+    nerd-icons-dired
+    
     )
   "A list of packages to ensure are installed at launch.")
 
@@ -29,8 +46,8 @@
 ;; Append the melpa stable and melpa archives
 (add-to-list 'package-archives
              '("stable" . "https://stable.melpa.org/packages/") t)
-;; (add-to-list 'package-archives
-;;              '("melpa" . "https://melpa.org/packages") t)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/") t)
 ;; Install into separate package dirs for each Emacs version
 (setq package-user-dir
       (expand-file-name

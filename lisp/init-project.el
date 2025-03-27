@@ -26,7 +26,6 @@
     (`(t . _) (treemacs-git-mode 'simple)))
   (treemacs-hide-gitignored-files-mode nil))
 
-(add-hook 'dired-mode-hook 'treemacs-icons-dired-enable-once)
 (rjd-add-to-frame-width treemacs-width)
 ;(treemacs-start-on-boot)
 

@@ -10,10 +10,13 @@
 [x] Column indicators at 80 characters
 [x] package management
 [x] magit
-[ ] Project management
-[ ] Completion
+[x] Project management
+[x] Completion (embark, marginalia, vertico, orderless, consult, corfu)
 [ ] Integrate recent files with completion mode
 [ ] ef-themes, modus-themes from package (with built-in theme failsafe)
-[ ] Column indicators at 72 and 100 characters
 [ ] language servers (eglot)
 [ ] Tree-sitter grammars
+[ ] Replace treemacs with my combo of dired/vc-dirs, magit
+[ ] Show current file tags in right side window
+[ ] Column indicators at 72 and 100 characters
+[ ] Improve use of embark and consult
