@@ -162,11 +162,46 @@
 	  ))
     (load-theme 'modus-vivendi-tinted))
 
-        
+(defun rjd-configure-ef-themes ()
+  "Configure ef-themes"
+  (setq ef-themes-to-toggle 'ef-themes-collection
+        ef-themes-to-rotate '(
+;                              ef-autumn
+;                              ef-bio
+;                              ef-cherie
+                              ef-dark
+                              ef-deuteranopia-dark
+;                              ef-dream
+;                              ef-duo-dark
+                              ef-elea-dark
+                              ef-maris-dark
+;                              ef-melissa-dark
+                              ef-night
+                              ef-owl
+;                              ef-rosa
+;                              ef-symbiosis
+;                              ef-trio-dark
+;                              ef-tritanopia-dark
+                              ef-winter)
+        )
+  (custom-set-faces
+   '(mode-line ((t :box (:line-width 1 :style released-button))))
+   '(mode-line-inactive ((t :box (:line-width 1 :style released-button)))))
+  
+  (setq ef-owl-palette-overrides
+        '((bg-main "#090c0f")
+          (bg-completion "#1a2432")))
+  (setq ef-elea-dark-palette-overrides
+        '((bg-main "#020504")))
+  (setq ef-maris-dark-palette-overrides
+        '((bg-main "#030c1b")))
+  (ef-themes-select 'ef-owl))
+
 (mapc #'disable-theme custom-enabled-themes)
-(if (version<= emacs-version "29.4")
-    (rjd-configure-modus-themes-v3)
-  (rjd-configure-modus-themes-v4))
+;; (if (version<= emacs-version "29.4")
+;;     (rjd-configure-modus-themes-v3)
+;;   (rjd-configure-modus-themes-v4))
+(rjd-configure-ef-themes)
 
 (provide 'init-theme)
 ;;; init-theme.el ends here

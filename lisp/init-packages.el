@@ -34,7 +34,8 @@
     nerd-icons-completion
     nerd-icons-corfu
     nerd-icons-dired
-    
+
+    ef-themes
     )
   "A list of packages to ensure are installed at launch.")
 
