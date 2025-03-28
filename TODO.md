@@ -12,7 +12,7 @@
 [x] magit
 [x] Project management
 [x] Completion (embark, marginalia, vertico, orderless, consult, corfu)
-[ ] Integrate recent files with completion mode
+[x] Integrate recent files with completion mode
 [ ] ef-themes, modus-themes from package (with built-in theme failsafe)
 [ ] language servers (eglot)
 [ ] Tree-sitter grammars
