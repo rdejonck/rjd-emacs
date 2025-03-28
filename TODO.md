@@ -13,10 +13,13 @@
 [x] Project management
 [x] Completion (embark, marginalia, vertico, orderless, consult, corfu)
 [x] Integrate recent files with completion mode
-[ ] ef-themes, modus-themes from package (with built-in theme failsafe)
+[x] ef-themes, modus-themes from package (with built-in theme failsafe)
 [ ] language servers (eglot)
 [ ] Tree-sitter grammars
 [ ] Replace treemacs with my combo of dired/vc-dirs, magit
 [ ] Show current file tags in right side window
 [ ] Column indicators at 72 and 100 characters
 [ ] Improve use of embark and consult
+[ ] Side window resize keybindings
+[ ] Better window splitting and navigation of the main area
+

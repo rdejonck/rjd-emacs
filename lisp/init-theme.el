@@ -164,44 +164,47 @@
 
 (defun rjd-configure-ef-themes ()
   "Configure ef-themes"
-  (setq ef-themes-to-toggle 'ef-themes-collection
-        ef-themes-to-rotate '(
-;                              ef-autumn
-;                              ef-bio
-;                              ef-cherie
-                              ef-dark
-                              ef-deuteranopia-dark
-;                              ef-dream
-;                              ef-duo-dark
-                              ef-elea-dark
-                              ef-maris-dark
-;                              ef-melissa-dark
-                              ef-night
-                              ef-owl
-;                              ef-rosa
-;                              ef-symbiosis
-;                              ef-trio-dark
-;                              ef-tritanopia-dark
-                              ef-winter)
-        )
+
+  ;; Give the modeline a 3-D look
   (custom-set-faces
    '(mode-line ((t :box (:line-width 1 :style released-button))))
    '(mode-line-inactive ((t :box (:line-width 1 :style released-button)))))
-  
+
+  ;; Darken the ef-owl theme's backgrounds
   (setq ef-owl-palette-overrides
-        '((bg-main "#090c0f")
+        '((bg-main "#141617")
           (bg-completion "#1a2432")))
-  (setq ef-elea-dark-palette-overrides
-        '((bg-main "#020504")))
-  (setq ef-maris-dark-palette-overrides
-        '((bg-main "#030c1b")))
-  (ef-themes-select 'ef-owl))
+
+  ;; The defaults look good on some monitors and washed out on others.
+  ;; Leaving them here, commented out, and checking the monitor color rendering
+  ;; (setq ef-elea-dark-palette-overrides
+  ;;       '((bg-main "#020504")))
+  ;; (setq ef-maris-dark-palette-overrides
+  ;;       '((bg-main "#030c1b")))
+
+  (ef-themes-select 'ef-owl)
+
+  (setq 
+        ;; Choose a set of themes to rotate through with `ef-themes-rotate'
+        ;; See all choices in `ef-themes-collection'
+        ;;   Light choices: `ef-themes-light-themes'
+        ;;   Dark choices:  `ef-themes-dark-themes'
+        rjd-ef-themes-dark '(ef-dark  ef-deuteranopia-dark  ef-elea-dark
+                             ef-maris-dark  ef-night  ef-owl  ef-winter)
+        ef-themes-to-rotate ef-themes-collection
+
+        ;; Toggle between a light and dark theme with `ef-themes-toggle'
+        ef-themes-to-toggle '(ef-owl ef-frost)
+        )
+
+  )
 
 (mapc #'disable-theme custom-enabled-themes)
-;; (if (version<= emacs-version "29.4")
-;;     (rjd-configure-modus-themes-v3)
-;;   (rjd-configure-modus-themes-v4))
-(rjd-configure-ef-themes)
+;; Use ef-themes if they are available, otherwise fallback to modus-theme
+;; Do nothing for emacs older than 28
+(cond ((featurep 'ef-themes) (rjd-configure-ef-themes))
+      ((not (version< emacs-version "30")) (rjd-configure-modus-themes-v4))
+      ((not (version< emacs-version "28")) (rjd-configure-modus-themes-v3)))
 
 (provide 'init-theme)
 ;;; init-theme.el ends here
