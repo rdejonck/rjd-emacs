@@ -21,9 +21,9 @@
     vertico
     marginalia
     orderless
+    embark-consult
     embark
     consult
-    embark-consult
     corfu
     cape
 
