@@ -5,3 +5,5 @@ elpa/
 elpa-*.*/
 transient/
 projects
+tramp
+.cache/

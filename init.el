@@ -9,6 +9,10 @@
 ;;; Code:
 
 ;; Directory definitions
+
+;; Keep this line commented out to appease the package manager
+;(package-initialize)
+
 (defvar root-dir (file-name-directory load-file-name)
   "The root of the Emacs configuration directory tree.")
 (defvar lisp-dir (expand-file-name "lisp" root-dir)
