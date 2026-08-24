@@ -1,0 +1,30 @@
+extends: default
+base:
+  font-size: 8
+
+code:
+  font-size: 8
+  padding: 6
+  
+caption:
+  font-style: bold
+  font-size: 11
+  margin-inside: 0
+
+page:
+  columns: 3
+  column-gap: 0.25in
+  column-rule-color: #000000
+  column-rule-width: 0.5pt
+  layout: landscape
+  size: Letter
+  margin: [0.5in, 0.5in, 0.5in, 0.5in]
+  
+heading:
+  h2-font-size: $base-font-size * 1.9
+  
+table:
+  cell:
+    padding: 0
+    line_height: 1
+    

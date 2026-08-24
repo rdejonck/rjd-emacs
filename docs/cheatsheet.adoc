@@ -1,0 +1,38 @@
+= rjd Emacs Quick Reference
+:notitle:
+:table-caption!:
+:experimental:
+
+////
+Make PDF with:
+    $ asciidoctor-pdf \
+        -a pdf-theme=./cheat_sheet-theme.yml \
+        rjd_emacs_cheatsheet.adoc
+////
+
+== {doctitle}
+.View
+//[cols="<.>3,^.>1m,^.>1m",frame=none,grid=none]
+[cols="<.>,^.>m,^.>m",frame=none,grid=none]
+|===
+h|Zoom               h|current buffer  h|global
+|Zoom in              |C-x C-+          |C-x C-M-+
+|Zoom out             |C-x C--          |C-x C-M--
+|Zoom reset           |C-x C-0          |C-x C-M-0
+|===
+
+.Windows
+[cols="<.>3,^.>1m",frame=none,grid=none]
+|===
+|Toggle sidebar windows   |C-x w s
+|===
+
+.Rectangles
+[cols="<.>3,^.>m",frame=none,grid=none]
+|===
+|kill rectangle                         |C-x r k
+|yank rectangle                         |C-x r y
+|open rectangle, shifting text right    |C-x r o
+|blank out rectangle                    |C-x r c
+|prefix each line with a string         |C-x r t
+|===
