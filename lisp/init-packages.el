@@ -36,6 +36,10 @@
     nerd-icons-dired
 
     ef-themes
+
+    ;; Languages that are not in the default emacs lisp
+    protobuf-mode
+    protobuf-ts-mode
     )
   "A list of packages to ensure are installed at launch.")
 

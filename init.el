@@ -1,4 +1,4 @@
-    ;;; init.el --- Emacs configuration
+;;; init.el --- Emacs configuration
 
 ;;; Commentary:
 ;; Building a configuration from the ground up with the intent of
@@ -38,6 +38,8 @@
 (require 'init-theme)
 (require 'init-ui)
 
+(require 'init-languages)
+(require 'init-treesit)
 (require 'init-completion)
 (require 'init-keybindings)
 
